@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Overwatch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <font face="Agency FB" size="5">
+        <h1 align="center" >Overwatch</h1>
+        <h2 align="center">Exposição de heróis</h2>
+
+        <table>
+        <select>
+            <option value="">Modo de exibição</option>
+            <option value="classes">Classes</option>
+            <option value="dificuldade">Dificuldade</option>
+            <option value="qtdhab">Quantidade de habilidades</option>
+            <option value="abc">Ordem alfabética</option>
+        </select>
+        </table><br>
+    </font>
+
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">nome2</th>
+      <th scope="col">nome3</th>
+    </tr>
+    </thead>
+    </table>
+
+    {% for funcao in todas_funcoes %}
+   {{ funcao.nome }} - -
+    <img src="{{funcao.imagem.url}}" width="210" height="150" class="img-thumbnail">
+
+        {% endfor %}
+
+
+        {% for heroi in herois %}
+    <br/>{{ heroi.apelido }} [{{heroi.fk_funcao.nome}}]
+
+
+    <img src="{{heroi.imagem.url}}" alt="{{heroi.apelido}}" width="210" height="150" class="img-thumbnail">
+
+
+{% endfor %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
