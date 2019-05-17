@@ -3,5 +3,6 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
-    path('inicio/', visaoInicial)
+    path('', visaoInicial),
+    path("tanque/<int:idheroi>/", visaoTanque)
 ]
