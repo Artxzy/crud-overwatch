@@ -14,31 +14,13 @@ def visaoInicial(request):
     }
     return render(request, 'index.html', contexto)
 
-# SÓ POR ENQUANTO
 
-def visaoTanque(request):
-    funcoes = Funcao.objects.filter(nome="Tanque")
-    herois = Heroi.objects.filter(fk_funcao__nome="Tanque")
-    contexto_tanque = {
+def visaoPorClasse(request, filtro_classe=None):
+    funcoes = Funcao.objects.filter(nome__iexact=filtro_classe)
+    herois = Heroi.objects.filter(fk_funcao__nome__iexact=filtro_classe)
+
+    contexto_herois = {
         "todas_funcoes": funcoes,
         "herois": herois
     }
-    return render(request, 'heroistanque.html', contexto_tanque)
-
-def visaoDano(request):
-    funcoes = Funcao.objects.filter(nome="Dano")
-    herois = Heroi.objects.filter(fk_funcao__nome="Dano")
-    contexto_dano = {
-        "todas_funcoes": funcoes,
-        "herois": herois
-    }
-    return render(request, 'heroistanque.html', contexto_dano)
-
-def visaoSuporte(request):
-    funcoes = Funcao.objects.filter(nome="Suporte")
-    herois = Heroi.objects.filter(fk_funcao__nome="Suporte")
-    contexto_suporte = {
-        "todas_funcoes": funcoes,
-        "herois": herois
-    }
-    return render(request, 'heroistanque.html', contexto_suporte)
+    return render(request, 'visao_por_classe.html', contexto_herois)
