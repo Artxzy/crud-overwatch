@@ -24,3 +24,11 @@ def visaoPorClasse(request, filtro_classe=None):
         "herois": herois
     }
     return render(request, 'visao_por_classe.html', contexto_herois)
+
+
+def VisaoDificuldade(request):
+    herois = Heroi.objects.all
+    contexto = {
+        "todos_herois": herois
+    }
+    return render(request, 'por_dificuldade.html', contexto)
