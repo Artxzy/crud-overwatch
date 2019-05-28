@@ -39,7 +39,7 @@
     <tr>
         <td>{{funcao.id}}</td>
         <td>{{funcao.nome}}</td>
-        <td><a href="visao_por_classe.html"><img src="{{funcao.imagem.url}}" width="90" height="90" class="img-thumbnail"></td></a>
+        <td><a href="{% url 'herois:visao_por_classe' funcao.nome %}"><img src="{{funcao.imagem.url}}" width="90" height="90" class="img-thumbnail"/></a></td>
     </tr>
 
 

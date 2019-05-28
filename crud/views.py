@@ -26,9 +26,9 @@ def visaoPorClasse(request, filtro_classe=None):
     return render(request, 'visao_por_classe.html', contexto_herois)
 
 
-def VisaoDificuldade(request):
-    herois = Heroi.objects.all
+def visaoHeroi(request, filtro_heroi=None):
+    herois = Heroi.objects.filter(apelido__iexact=filtro_heroi).first()
     contexto = {
-        "todos_herois": herois
+        "heroi": herois
     }
-    return render(request, 'por_dificuldade.html', contexto)
+    return render(request, 'visao_por_heroi.html', contexto)
