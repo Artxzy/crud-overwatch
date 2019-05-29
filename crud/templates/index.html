@@ -13,53 +13,38 @@
         <h2 align="center">Exposição de heróis</h2>
 
 
-        <div class="dropdown">
+      <center>  <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
    Modo de exibição
   </button>
+
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="por_dificuldade.html">Dificuldade</a>
     <a class="dropdown-item" href="#">Classes</a>
     <a class="dropdown-item" href="#">Ordem alfabética</a>
   </div>
-</div>
+</div></center>
         <br>
     </font>
 
     <table class="table table-striped table-dark">
   <thead class="thead-dark">
-  <tr>
+  <tr >
         <th >id</th><th>Função</th><th>Imagem representativa ;)</th>
-
     </tr>
         {% for funcao in todas_funcoes %}
-
-
     <tr>
         <td>{{funcao.id}}</td>
         <td>{{funcao.nome}}</td>
         <td><a href="{% url 'herois:visao_por_classe' funcao.nome %}"><img src="{{funcao.imagem.url}}" width="90" height="90" class="img-thumbnail"/></a></td>
     </tr>
-
-
-
-   <!-- <img src="{{funcao.imagem.url}}" width="210" height="150" class="img-thumbnail">
-    -->
-              </thead>
+  </thead>
         {% endfor %}
       </thead>
     </table>
 
 
-        {% for heroi in herois %}
-    <br/>{{ heroi.apelido }} [{{heroi.fk_funcao.nome}}]
-
-
-    <img src="{{heroi.imagem.url}}" alt="{{heroi.apelido}}" width="210" height="150" class="img-thumbnail">
-
-
-{% endfor %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

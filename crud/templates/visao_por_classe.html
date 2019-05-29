@@ -8,13 +8,15 @@
 </head>
 <body>
 {%for funcao in todas_funcoes%}
+<center>
 <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{funcao.imagem.url}}" alt="{{funcao.nome}}" width="85" height="110" class="img-thumbnail">
+ <img class="img-fluid" src="{{funcao.imagem.url}}" alt="{{funcao.nome}}" class="img-thumbnail">
   <div class="card-body">
     <h5 class="card-title">{{funcao.nome}}</h5>
     <p class="card-text">{{funcao.descriçao}}</p>
   </div>
 </div>
+</center>
 {%endfor%}
 
 
