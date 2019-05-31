@@ -6,11 +6,26 @@
     <title>Overwatch</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+
+        body{
+            background: url('/anexos/heroi/back.jpg');
+        }
+        .titulo{
+            color: #ffffff;
+        }
+        .grow:hover{
+               background-color: #c71585;
+               transition: all .2s ease-in-out;
+               transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
     <font face="Agency FB" size="5">
-        <h1 align="center" >Overwatch</h1>
-        <h2 align="center">Exposição de heróis</h2>
+        <h1 class="titulo" align="center" >Overwatch</h1>
+        <h2 class="titulo"align="center">Exposição de heróis</h2>
 
 
       <center>  <div class="dropdown">
@@ -20,24 +35,27 @@
   </button>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="por_dificuldade.html">Dificuldade</a>
+    <a class="dropdown-item" href="#">Dificuldade</a>
     <a class="dropdown-item" href="#">Classes</a>
     <a class="dropdown-item" href="#">Ordem alfabética</a>
   </div>
-</div></center>
+</div>
+
+      </center>
         <br>
-    </font>
+
 
     <table class="table table-striped table-dark">
   <thead class="thead-dark">
   <tr >
-        <th >id</th><th>Função</th><th>Imagem representativa ;)</th>
+        <th>id</th><th>Função</th><th>Imagem representativa ;)</th>
     </tr>
         {% for funcao in todas_funcoes %}
     <tr>
         <td>{{funcao.id}}</td>
         <td>{{funcao.nome}}</td>
-        <td><a href="{% url 'herois:visao_por_classe' funcao.nome %}"><img src="{{funcao.imagem.url}}" width="90" height="90" class="img-thumbnail"/></a></td>
+        <td><a href="{% url 'herois:visao_por_classe' funcao.nome %}">
+            <div class="grow"><img src="{{funcao.imagem.url}}" width="90" height="90" class="img-thumbnail"/></div></a></td>
     </tr>
   </thead>
         {% endfor %}
@@ -52,6 +70,8 @@
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        </font>
 </body>
 </html>
 

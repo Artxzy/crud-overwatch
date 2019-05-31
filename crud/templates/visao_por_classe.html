@@ -5,8 +5,20 @@
     <title>Classes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        body{
+            background: url('/anexos/heroi/back.jpg');
+        }
+        .grow:hover{
+               background-color: #c71585;
+               transition: all .2s ease-in-out;
+               transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
+
 {%for funcao in todas_funcoes%}
 <center>
 <div class="card" style="width: 18rem;">
@@ -16,42 +28,52 @@
     <p class="card-text">{{funcao.descriçao}}</p>
   </div>
 </div>
+</center>   <br> <center>
+    <font face="Agency FB" size="5">
+        <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   Modo de exibição
+  </button>
+
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Dificuldade</a>
+    <a class="dropdown-item" href="#">Classes</a>
+    <a class="dropdown-item" href="#">Ordem alfabética</a>
+  </div>
+</div>
+        <a href="http://127.0.0.1:8000/">
+            <input type="button" value="Inicio" class="btn btn-secondary" name="fodas a gente nao vai usar"></a>
 </center>
+<br>
 {%endfor%}
 
 
-<table class="table">
+
+<div class="table">
+<table class="table table-striped table-dark">
   <thead class="thead-dark">
     <tr>
-        <th >Nome</th><th>Dificuldade (de 1 à 3)</th><th>Imagem do Heróis ;)</th>
+        <th >Nome</th><th>Dificuldade (de 1 à 3)</th><th>Imagem dos Heróis ;)</th>
 
     </tr>
 {%for heroi in herois %}
-
+ <tr>
             <td>{{heroi.apelido}}</td>
             <td>{{heroi.dificuldade}}</td>
-            <td><a href="{% url 'herois:visao_por_heroi' heroi.apelido %}">
-                <img src="{{heroi.imagem.url}}" width="90" height="90" class="img-thumbnail"></a></td>
-
-
-
-    <tr>
-
+            <td><a href="{% url 'herois:visao_por_heroi' heroi.apelido %}"><div class="grow">
+                <img src="{{heroi.imagem.url}}" width="90" height="90" class="img-thumbnail"></div></a></td>
 
 
     </tr>
 
-
-
-   <!--
-    -->
               </thead>
-
-
 
 {%endfor%}
       </thead>
     </table>
+    </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -62,5 +84,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+    </font>
 </body>
 </html>
